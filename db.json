@@ -257,43 +257,49 @@
         "The Natural Entity Recognition System",
         "Object-oriented Programming"
       ]
+    },
+    {
+      "id": "0f9c",
+      "title": "wewe",
+      "price": "22323",
+      "image": "wewe"
     }
   ],
   "categories": [
     {
-      "id": 1,
+      "id": "1",
       "category": "Networking Technology",
       "image": "https://i.ibb.co/10JfSKN/network.png"
     },
     {
-      "id": 2,
+      "id": "2",
       "category": "Film & Media",
       "image": "https://i.ibb.co/1XFN5js/production.png"
     },
     {
-      "id": 3,
+      "id": "3",
       "category": "Cyber Security",
       "image": "https://i.ibb.co/rHc59mK/security.png"
     },
     {
-      "id": 4,
+      "id": "4",
       "category": "Digital Marketing",
       "image": "https://i.ibb.co/ZHF9bN0/seo.png"
     },
     {
-      "id": 5,
+      "id": "5",
       "category": "English Language",
       "image": "https://i.ibb.co/NZnm7ky/teaching.png"
     },
     {
-      "id": 6,
+      "id": "6",
       "category": "Graphic & Multimedia",
       "image": "https://i.ibb.co/pfb27mP/graphic.png"
     },
     {
-      "id": 7,
+      "id": "7",
       "category": "Web & Software",
       "image": "https://i.ibb.co/pfb27mP/graphic.png"
     }
-  ]  
+  ]
 }

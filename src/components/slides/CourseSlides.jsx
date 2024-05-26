@@ -1,13 +1,13 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/css";
 import "swiper/css/pagination";
-
-
 import { Autoplay} from "swiper/modules";
+
 import { useEffect, useState } from "react";
+
 import axios from "axios";
 import dateFormat from "dateformat";
+
 const CourseSlides = () => {
   const [courses, setCourses] = useState([]);
   useEffect(() => {

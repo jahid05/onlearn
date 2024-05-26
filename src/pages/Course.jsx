@@ -10,18 +10,9 @@ const Course = () => {
     const image = form.image.value;
 
     const data = { title, price, image };
-    
-    
-    // await fetch("http://localhost:3000/courses", {
-    //     method: "POST",
-    //     headers: {
-    //         "Content-type": "application/json",
-    //     },
-    //     body: JSON.stringify(data),
-    // })
-    // .then((res) => res.json())
-    // .then((data) => console.log(data)); 
     await axios.post("http://localhost:3000/courses", data)
+
+    console.log(data)
   };
   return (
     <div className="w-1/2 mx-auto min-h-screen py-20">

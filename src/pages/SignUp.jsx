@@ -1,18 +1,46 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { Zoom, toast } from "react-toastify";
 import auth from "../firebase/firebase.config";
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 const SignUp = () => {
   const navigate = useNavigate();
   const [signInWithGoogle] = useSignInWithGoogle(auth);
-  const handleGoogleLogin = async () => {
-   await signInWithGoogle();
-   navigate('/')
-  };
+  // const [createUserWithEmailAndPassword, user] =
+  //   useCreateUserWithEmailAndPassword(auth);
+  
+  //   const handleSignUp = async (e) => {
+  //     e.preventDefault();
+      
+  //     const form = e.target;
+  //     const displayName = form.displayName.value;
+  //     const photoURL = form.photoURL.value;
+  //     const email = form.email.value;
+  //     const password = form.password.value;
+  //     const userData = {displayName, photoURL, email, password};
+  //     await createUserWithEmailAndPassword(email, password);
+  //     console.log(userData)
+  //     navigate("/")
+  //     e.target.reset();
+  //   };
 
-//   console.log(user, loading, error);
+  const handleGoogleLogin = async () => {
+    await signInWithGoogle();
+    toast.success("Successful Sign In!", {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Zoom,
+    });
+    navigate("/");
+  };
   return (
     <div className="bg-theme-2 h-screen flex items-center justify-center">
       <div className="card shrink-0 w-full max-w-md shadow-2xl bg-white">
@@ -44,6 +72,7 @@ const SignUp = () => {
             </label>
             <input
               type="text"
+              name="displayName"
               placeholder="Full Name"
               className="input input-bordered"
               required
@@ -55,7 +84,20 @@ const SignUp = () => {
             </label>
             <input
               type="email"
-              placeholder="email"
+              name="email"
+              placeholder="Email"
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Photo</span>
+            </label>
+            <input
+              type="url"
+              name="photoURL"
+              placeholder="Photo"
               className="input input-bordered"
               required
             />
@@ -66,21 +108,14 @@ const SignUp = () => {
             </label>
             <input
               type="password"
-              placeholder="password"
+              name="password"
+              placeholder="Password"
               className="input input-bordered"
               required
             />
-            <label className="label">
-              <p className="text-sm">
-                Already have an account?
-                <Link className="font-semibold text-theme-1">Sign In</Link>
-              </p>
-            </label>
           </div>
-          <div className="form-control">
-            <button className="btn bg-theme-1 rounded-xl text-white">
-              Sign in
-            </button>
+          <div className="form-control mt-6">
+            <button className="btn bg-theme-1 text-white">Sign Up</button>
           </div>
         </form>
         <div className="px-8 pb-8">

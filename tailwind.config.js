@@ -11,7 +11,9 @@ export default {
         "theme-2": "#D2E6E4",
         "theme-3": "#232D3F",
       },
-
+      backgroundImage: {
+        'footer-texture': "url('/src/assets/images/footer_wave.svg')",
+      },
       fontFamily: {
        "raleway" : ("Raleway", "sans-serif")
       },

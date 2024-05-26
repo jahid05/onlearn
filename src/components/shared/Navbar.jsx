@@ -1,15 +1,28 @@
 import logo from "../../assets/images/logo.png";
 import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
-import { useSignOut } from "react-firebase-hooks/auth";
+import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 import auth from "../../firebase/firebase.config";
+import { Zoom, toast } from "react-toastify";
 
-const Navbar = ({user}) => {
+const Navbar = () => {
   const [signOut] = useSignOut(auth);
-  const handleSignOut = () => {
-    signOut();
+  const [user] = useAuthState(auth);
+  console.log(user)
+  const handleSignOut = async () => {
+    await signOut();
+    toast.success('Successful Sign out!', {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Zoom,
+      });
   };
-  console.log(user);
   const navItem = (
     <>
       <NavLink
@@ -82,9 +95,33 @@ const Navbar = ({user}) => {
         <div className="navbar-end lg:gap-4">
           {user ? (
             <>
-              <button onClick={handleSignOut} className="btn bg-red-300">
-                Sign Out
-              </button>
+              <div className="dropdown dropdown-end">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="w-10 rounded-full">
+                    <img
+                      alt="Tailwind CSS Navbar component"
+                      src={user.photoURL}
+                    />
+                  </div>
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+                >
+                  <li>
+                    <Link to={'/dashboard'} className="hover:bg-theme-1 hover:text-white">
+                      Dashboard
+                    </Link>
+                  </li>
+                  <li>
+                    <Link onClick={handleSignOut} className="hover:bg-theme-1 hover:text-white">Sign Out</Link>
+                  </li>
+                </ul>
+              </div>
             </>
           ) : (
             <>

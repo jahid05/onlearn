@@ -1,18 +1,31 @@
 /* eslint-disable react/no-unescaped-entities */
 import { FcGoogle } from "react-icons/fc";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "../firebase/firebase.config";
+import { Zoom, toast } from "react-toastify";
 
 const SignIn = () => {
-    const [signInWithGoogle] = useSignInWithGoogle(auth);
-    const navigate = useNavigate()
-    const handleGoogleLogin = async () =>{
-       await signInWithGoogle()
-        navigate('/')
-    }
-    // console.log(user, loading, error)
-    
+  const [signInWithGoogle, user] = useSignInWithGoogle(auth);
+  
+  const navigate = useNavigate();
+  const handleGoogleLogin = async () => {
+    await signInWithGoogle();
+    console.log(user)
+    toast.success("Successful Sign In!", {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Zoom,
+    });
+    navigate("/");
+  };
+
   return (
     <div className="bg-theme-2 h-screen flex items-center justify-center">
       <div className="card shrink-0 w-full max-w-md shadow-2xl bg-white">
@@ -62,7 +75,7 @@ const SignIn = () => {
             <label className="label">
               <p className="text-sm">
                 Don't have an account?
-                <Link className="font-semibold text-theme-1">Sign Up</Link>
+                <Link to={'/signUp'} className="font-semibold text-theme-1">Sign Up</Link>
               </p>
             </label>
           </div>
@@ -73,8 +86,11 @@ const SignIn = () => {
           </div>
         </form>
         <div className="px-8 pb-8">
-        <div className="divider">OR</div>
-          <button onClick={handleGoogleLogin} className="btn w-full font-normal">
+          <div className="divider">OR</div>
+          <button
+            onClick={handleGoogleLogin}
+            className="btn w-full font-normal"
+          >
             <FcGoogle className="text-3xl" />
             Sign in with google
           </button>

@@ -1,5 +1,5 @@
 import Navbar from "../components/shared/Navbar";
-// import Footer from "../components/shared/Footer";
+import Footer from "../components/shared/Footer";
 import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
@@ -7,7 +7,7 @@ const MainLayout = () => {
     <div className="font-raleway">
       <Navbar />
       <Outlet/>
-      {/* <Footer/> */}
+      <Footer/>
     </div>
   );
 };
