@@ -3,7 +3,7 @@
 const SectionTitle = ({title}) => {
     return (
         <div className="text-center">
-            <h1 className="text-5xl font-bold  py-10 text-theme-1">{title}</h1>
+            <h1 className="lg:text-5xl text-3xl font-bold  lg:py-10 py-8 text-theme-1">{title}</h1>
             
         </div>
     );

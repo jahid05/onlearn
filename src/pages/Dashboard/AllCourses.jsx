@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Card from "../../components/card/Card";
+import SectionTitle from "../../components/sectionTitle/SectionTitle";
 
 const AllCourses = () => {
   const [courses, setCourses] = useState([]);
@@ -16,10 +17,10 @@ const AllCourses = () => {
     fetchData();
   }, []);
   return (
-    <div className="bg-gray-900 px-20">
+    <div className="bg-gray-900 lg:px-20 px-6">
       <div className="text-center">
-        <h1 className="text-5xl py-8 text-theme-1 font-bold">All Course</h1>
-        <div className="lg:py-10 ps-64 grid lg:grid-cols-4 gap-6">
+        <SectionTitle title="All Course"/>
+        <div className="lg:py-10 lg:ps-64 grid lg:grid-cols-4 gap-6">
           {
             courses?.map((course) => (
               <Card key={course.id} course={course} />

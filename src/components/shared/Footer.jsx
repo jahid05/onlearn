@@ -1,7 +1,16 @@
+import logo from "../../assets/images/logo.png"
 const Footer = () => {
   return (
     <div className="bg-theme-2">
-      <footer className="mx-auto container footer p-10 text-base-content">
+      <footer className="footer p-10 text-base-content container mx-auto">
+        <aside>
+          <img src={logo} alt="Logo" />
+          <p>
+            On Learn
+            <br />
+            Providing reliable tech since 1992
+          </p>
+        </aside>
         <nav>
           <h6 className="footer-title">Services</h6>
           <a className="link link-hover">Branding</a>
@@ -22,22 +31,6 @@ const Footer = () => {
           <a className="link link-hover">Privacy policy</a>
           <a className="link link-hover">Cookie policy</a>
         </nav>
-        <form>
-          <h6 className="footer-title">Newsletter</h6>
-          <fieldset className="form-control w-80">
-            <label className="label">
-              <span className="label-text">Enter your email address</span>
-            </label>
-            <div className="join">
-              <input
-                type="text"
-                placeholder="username@site.com"
-                className="input input-bordered join-item"
-              />
-              <button className="btn btn-primary join-item">Subscribe</button>
-            </div>
-          </fieldset>
-        </form>
       </footer>
     </div>
   );

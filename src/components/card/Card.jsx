@@ -1,8 +1,11 @@
 import dateFormat from "dateformat";
+import { FaRegEye, FaRegPenToSquare, FaRegTrashCan } from "react-icons/fa6";
+import { Link } from "react-router-dom";
+
 // eslint-disable-next-line react/prop-types
 const Card = ({course}) => {
     // eslint-disable-next-line react/prop-types
-    const {image, student, title, slogan, price, off_price, date} = course;
+    const {id, image, student, title, slogan, date} = course;
   console.log(course);
   return (
     <div>
@@ -37,24 +40,16 @@ const Card = ({course}) => {
                   </div>
                 </div>
               </div>
-              <div className="card-body h-52">
+              <div className="card-body text-start h-52">
                 <p>{dateFormat(date, "dS mmmm yyyy")}</p>
                 <h2 className="text-lg font-semibold text-theme-1">
                   {title}
                 </h2>
                 <p>{slogan}</p>
-                <div className="card-actions justify-between py-2">
-                  <div className="flex gap-2 py-2">
-                    <p className="text-xl text-theme-1 font-semibold">
-                      ${off_price}
-                    </p>
-                    <p className="text-xl text-gray-500 font-semibold">
-                      <del>${price}</del>
-                    </p>
-                  </div>
-                  <button className="btn bg-theme-1 text-white ">
-                    View Details
-                  </button>
+                <div className="card-actions justify-center py-2">
+                  <Link to={`/courseDetails/${id}`} className="btn text-white bg-green-500"><FaRegEye /></Link>
+                  <button className="btn text-white bg-indigo-400"><FaRegPenToSquare/></button>
+                  <button className="btn text-white bg-red-400"><FaRegTrashCan/></button>
                 </div>
               </div>
             </div>

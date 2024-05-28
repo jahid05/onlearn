@@ -1,31 +1,62 @@
 import axios from "axios";
-import React, { useState } from "react";
-import "react-modern-calendar-datepicker/lib/DatePicker.css";
-import { Calendar } from "react-modern-calendar-datepicker";
+import { Zoom, toast } from "react-toastify";
+import SectionTitle from "../../components/sectionTitle/SectionTitle";
 
 const AddCourse = () => {
-  const [selectedDay, setSelectedDay] = useState(null);
   const handleForm = async (e) => {
     e.preventDefault();
 
     const form = e.target;
     const title = form.title.value;
+    const slogan = form.slogan.value;
     const price = form.price.value;
+    const off_price = form.off_price.value;
+    const id = form.id.value;
+    const date = form.date.value;
+    const description = form.description.value;
     const image = form.image.value;
 
-    const data = { title, price, image };
-    await axios.post("http://localhost:3000/courses", data);
+    const data = { title, slogan, price, off_price, id, description, date, image };
+    
+    try {
+      await axios.post("http://localhost:3000/courses", data);
+      toast.success("Successful Added Course!", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Zoom,
+      });
+      form.reset()
+      
+    } catch (error) {
+      toast.error("error.message", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Zoom,
+      });
+    }
+
+    
 
     console.log(data);
   };
   return (
-    <div className="bg-gray-900 h-screen">
-      <h1 className="text-center py-8 md:text-4xl text-white font-bold">
-        Add Course
-      </h1>
-      <div className="w-1/2 mx-auto bg-white rounded-2xl">
-        <form className="card-body">
-          <div className="grid grid-cols-2 gap-6">
+    <div className="bg-gray-900 min-h-screen px-6 lg:px-0 py-8">
+      <SectionTitle title="Add Course" />
+      <div className="lg:w-1/2 mx-auto bg-white rounded-2xl">
+        <form onSubmit={handleForm} className="card-body">
+          <div className="grid lg:grid-cols-2 gap-6">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Course Title</span>
@@ -51,7 +82,7 @@ const AddCourse = () => {
               />
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid lg:grid-cols-2 gap-6">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Price</span>
@@ -77,31 +108,8 @@ const AddCourse = () => {
               />
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-6">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Description</span>
-              </label>
-              <textarea
-                name="description"
-                placeholder="Description"
-                className="textarea textarea-bordered h-32"
-                required
-              ></textarea>
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Class Date</span>
-              </label>
-              <Calendar
-                value={selectedDay}
-                onChange={setSelectedDay}
-                shouldHighlightWeekends
-              />
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-6">
-            <div className="form-control">
+          <div className="grid lg:grid-cols-2 gap-6">
+          <div className="form-control">
               <label className="label">
                 <span className="label-text">ID No.</span>
               </label>
@@ -115,17 +123,45 @@ const AddCourse = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Choose Photo</span>
+                <span className="label-text">Class Date</span>
               </label>
               <input
-                type="file"
-                className="file-input file-input-bordered w-full max-w-xs"
+                type="date"
+                name="date"
+                placeholder="Class Date"
+                className="input input-bordered"
+                required
+              />
+            </div>
+          </div>
+          <div className="grid lg:grid-cols-2 gap-6">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Description</span>
+              </label>
+              <textarea
+                name="description"
+                placeholder="Description"
+                className="textarea textarea-bordered h-32"
+                required
+              ></textarea>
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Photo URL</span>
+              </label>
+              <input
+                type="url"
+                name="image"
+                placeholder="Photo URL"
+                className="input input-bordered"
+                required
               />
             </div>
           </div>
 
-          <div className="form-control mt-6">
-            <button className="btn bg-theme-1">Add Course</button>
+          <div className="form-control mt-6 ">
+            <button className="btn text-white bg-theme-1">Add Course</button>
           </div>
         </form>
       </div>

@@ -12,7 +12,7 @@ const Dashboard = () => {
   const handleSignOut = async () => {
     await signOut();
 
-    toast.success("Successful Sign In!", {
+    toast.success("Successful Sign Out!", {
       position: "top-center",
       autoClose: 1000,
       hideProgressBar: false,
@@ -27,23 +27,23 @@ const Dashboard = () => {
   };
   return (
     <div className="">
-      <div className="w-72 bg-theme-3 md:fixed">
+      <div className="w-72 bg-theme-3 md:fixed z-20">
         <div
           onClick={() => setOpen(!open)}
           className="flex justify-between lg:hidden "
         >
           {open === true ? (
-            <span className="text-3xl text-theme-400 absolute top-6 right-6 z-20">
+            <span className="text-3xl text-theme-1 absolute top-6 right-6 z-20">
               <FaXmark></FaXmark>
             </span>
           ) : (
-            <span className="text-2xl text-theme-400 absolute top-6 left-6 z-20">
+            <span className="text-2xl text-theme-1 absolute top-6 left-6 z-20">
               <FaBarsStaggered></FaBarsStaggered>
             </span>
           )}
         </div>
         <nav
-          className={`flex flex-col z-10 bg-theme-300 items-center justify-evenly w-full h-screen shadow-2xl text-theme-400 font-semibold absolute lg:static transition-all duration-500 ${
+          className={`flex flex-col z-10 bg-theme-3 items-center justify-evenly w-full h-screen shadow-2xl text-theme-1 font-semibold absolute lg:static transition-all duration-500 ${
             open ? "left-0" : "-left-full"
           }`}
         >
@@ -60,18 +60,6 @@ const Dashboard = () => {
             onClick={() => setOpen(!open)}
             className="grid grid-cols-1 gap-y-5"
           >
-            <NavLink
-              to={"dashboardHome"}
-              className={({ isActive, isPending }) =>
-                isPending
-                  ? "pending"
-                  : isActive
-                  ? "text-theme-1 border-b border-theme-1 text-lg hover:border-b px-2 duration-500"
-                  : "text-white text-lg hover:border-b hover:border-theme-1 px-2 border-b  border-transparent hover:text-theme-1 font-normal duration-500"
-              }
-            >
-              Dashboard
-            </NavLink>
             <NavLink
               to={"allCourses"}
               className={({ isActive, isPending }) =>

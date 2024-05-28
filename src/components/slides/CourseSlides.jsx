@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 import axios from "axios";
 import dateFormat from "dateformat";
+import { Link } from "react-router-dom";
 
 const CourseSlides = () => {
   const [courses, setCourses] = useState([]);
@@ -96,9 +97,9 @@ const CourseSlides = () => {
                       <del>${course?.price}</del>
                     </p>
                   </div>
-                  <button className="btn bg-theme-1 text-white ">
+                  <Link to={`courseDetails/${course?.id}`} className="btn bg-theme-1 text-white ">
                     View Details
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

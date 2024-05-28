@@ -259,46 +259,50 @@
       ]
     },
     {
-      "id": "0f9c",
-      "title": "wewe",
-      "price": "22323",
-      "image": "wewe"
+      "id": "9",
+      "title": "Cyber Security",
+      "slogan": "Be a Security Expert Through",
+      "price": "450",
+      "off_price": "420",
+      "description": "With the growing number of online activities, the threat of data breaching is increasing day by day. A study shows, many companies lost a hefty amount, almost 6 trillion dollars in total, due to cyber-attacks in 2021. You can build a lucrative career in Cyber Security by obtaining the skills and knowledge in this demanding sector. Enroll in our course to take one step ahead of being an ethical hacker.",
+      "date": "2024-06-01",
+      "image": "https://www.creativeitinstitute.com/images/course/course_1682738473.jpg"
     }
   ],
   "categories": [
     {
       "id": "1",
-      "category": "Networking Technology",
+      "title": "Networking Technology",
       "image": "https://i.ibb.co/10JfSKN/network.png"
     },
     {
       "id": "2",
-      "category": "Film & Media",
+      "title": "Film & Media",
       "image": "https://i.ibb.co/1XFN5js/production.png"
     },
     {
       "id": "3",
-      "category": "Cyber Security",
+      "title": "Cyber Security",
       "image": "https://i.ibb.co/rHc59mK/security.png"
     },
     {
       "id": "4",
-      "category": "Digital Marketing",
+      "title": "Digital Marketing",
       "image": "https://i.ibb.co/ZHF9bN0/seo.png"
     },
     {
       "id": "5",
-      "category": "English Language",
+      "title": "English Language",
       "image": "https://i.ibb.co/NZnm7ky/teaching.png"
     },
     {
       "id": "6",
-      "category": "Graphic & Multimedia",
+      "title": "Graphic & Multimedia",
       "image": "https://i.ibb.co/pfb27mP/graphic.png"
     },
     {
       "id": "7",
-      "category": "Web & Software",
+      "title": "Web & Software",
       "image": "https://i.ibb.co/pfb27mP/graphic.png"
     }
   ]

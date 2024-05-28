@@ -8,12 +8,12 @@ const Hero = () => {
   return (
     <div className="bg-theme-2 rounded-b-[3rem] px-6 lg:px-0">
       <div className="grid md:grid-cols-2 container mx-auto px-6 md:px-0  items-center">
-        <div className="">
+        <div className="py-10 lg:py-0">
           <div className="badge mb-4 rounded-md py-3 px-6">Never stop learning</div>
-          <h1 className="lg:text-6xl md:text-4xl pb-7 font-bold text-theme-1">
+          <h1 className="lg:text-6xl md:text-4xl text-3xl pb-7 font-bold text-theme-1">
             Grow up your skills by online courses with Onlearning
           </h1>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center flex-wrap gap-4">
             <button className="btn bg-theme-3 border-none text-white md:px-8 md:py-4 text-[16px] rounded-xl hover:bg-theme-1 hover:text-white duration-500">
               Explore Path
             </button>
@@ -21,7 +21,7 @@ const Hero = () => {
           </div>
           
         </div>
-        <div className="pt-32 z-10">
+        <div className="md:pt-32 z-10">
             <div className="relative">
                 <img className="absolute md:top-96 w-44 md:w-auto bottom-14" src={box} alt="Box" />
                 <img className="" src={heroImg} alt="Images" />
