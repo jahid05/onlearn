@@ -22,15 +22,15 @@ const CourseDetails = () => {
           <div className="flex flex-wrap gap-4 py-6">
             <div className="bg-theme-2 p-6 text-center rounded-2xl text-xl text-black font-semibold">
               Months
-              <p>{duration}</p>
+              <p>{duration? duration : 6}</p>
             </div>
             <div className="bg-theme-2 p-6 text-center rounded-2xl text-xl text-black font-semibold">
               Lectures
-              <p>{lectures}</p>
+              <p>{lectures? lectures : 45}</p>
             </div>
             <div className="bg-theme-2 p-6 text-center rounded-2xl text-xl text-black font-semibold">
               Projects
-              <p>{project}</p>
+              <p>{project? project : 15}+</p>
             </div>
           </div>
           <p className="text-gray-500 text-lg">{description}</p>
@@ -44,7 +44,7 @@ const CourseDetails = () => {
           </div>
           <div className="flex flex-wrap gap-4 py-4">
             <button className="btn bg-theme-1 text-white">Enroll Now</button>
-            <button className="btn bg-theme-1 text-white">Free Class</button>
+            <button className="btn bg-theme-3 text-white">Free Class</button>
           </div>
         </div>
         <div className="">

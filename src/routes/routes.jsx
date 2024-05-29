@@ -14,7 +14,6 @@ import AddCourse from "../pages/Dashboard/AddCourse";
 import UpdateCourse from "../pages/Dashboard/UpdateCourse";
 import CourseDetails from "../pages/CourseDetails";
 
-
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -43,8 +42,9 @@ export const router = createBrowserRouter([
       },
       {
         path: "courseDetails/:id",
-        element: <CourseDetails/>,
-        loader: ({params}) => fetch(`http://localhost:3000/courses/${params.id}`)
+        element: <CourseDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/courses/${params.id}`),
       },
       {
         path: "signIn",
@@ -69,8 +69,10 @@ export const router = createBrowserRouter([
         element: <AddCourse />,
       },
       {
-        path: "updateCourse",
+        path: "updateCourse/:id",
         element: <UpdateCourse />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/courses/${params.id}`),
       },
     ],
   },

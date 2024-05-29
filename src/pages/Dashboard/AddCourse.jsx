@@ -1,8 +1,10 @@
 import axios from "axios";
 import { Zoom, toast } from "react-toastify";
 import SectionTitle from "../../components/sectionTitle/SectionTitle";
+import { useNavigate } from "react-router-dom";
 
 const AddCourse = () => {
+  const navigate = useNavigate()
   const handleForm = async (e) => {
     e.preventDefault();
 
@@ -32,7 +34,7 @@ const AddCourse = () => {
         transition: Zoom,
       });
       form.reset()
-      
+      navigate('/dashboard/allCourses')
     } catch (error) {
       toast.error("error.message", {
         position: "top-center",

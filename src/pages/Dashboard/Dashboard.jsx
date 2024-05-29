@@ -84,18 +84,6 @@ const Dashboard = () => {
             >
               Add Course
             </NavLink>
-            <NavLink
-              to={"updateCourse"}
-              className={({ isActive, isPending }) =>
-                isPending
-                  ? "pending"
-                  : isActive
-                  ? "text-theme-1 border-b border-theme-1 text-lg hover:border-b px-2 duration-500"
-                  : "text-white text-lg hover:border-b hover:border-theme-1 px-2 border-b  border-transparent hover:text-theme-1 font-normal duration-500"
-              }
-            >
-              Update Course
-            </NavLink>
           </ul>
           <div className="flex gap-2">
             <Link to={"/"} className="btn  border-none">

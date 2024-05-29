@@ -97,7 +97,7 @@ const CourseSlides = () => {
                       <del>${course?.price}</del>
                     </p>
                   </div>
-                  <Link to={`courseDetails/${course?.id}`} className="btn bg-theme-1 text-white ">
+                  <Link to={`/courseDetails/${course?.id}`} className="btn bg-theme-1 text-white ">
                     View Details
                   </Link>
                 </div>
